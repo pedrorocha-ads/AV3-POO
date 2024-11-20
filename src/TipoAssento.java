@@ -34,10 +34,10 @@ public class TipoAssento {
     public boolean editar(TipoAssento tipoAssento) {
         return false;
     }
-    public consultar(TipoAssento tipoAssento){
+    public boolean consultar(TipoAssento tipoAssento){
         return false;
     }
-    public listar(TipoAssento tipoAssento){
+    public ArrayList<TipoAssento> listar(TipoAssento tipoAssento){
         return new ArrayList<TipoAssento>();
     }
 }
