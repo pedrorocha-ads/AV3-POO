@@ -1,6 +1,6 @@
 import java.util.ArrayList;
 
-public class Ator implements Pessoa {
+public class Ator extends Pessoa {
     private int registro;
 
     public Ator(String cpf, String nome, String email, int registro) {
@@ -19,8 +19,14 @@ public class Ator implements Pessoa {
     public boolean editar(Ator ator){
         return true;
     }
+    public Ator consultar(int registro){
+        return this;
+    }
     public ArrayList<Ator> listar(Ator ator){
         return new ArrayList<Ator>();
     }
 
+    public void metodo(){
+
+    }
 }
