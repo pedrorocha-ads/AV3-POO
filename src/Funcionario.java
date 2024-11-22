@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 import java.util.Date;
 
-public class Funcionario implements Pessoa{
+public class Funcionario extends Pessoa{
     private int matricula;
     private Date horarioTrabalho;
 
@@ -21,5 +21,20 @@ public class Funcionario implements Pessoa{
     }
     public void setHorarioTrabalho(Date horarioTrabalho) {
         this.horarioTrabalho = horarioTrabalho;
+    }
+    public boolean cadastrar(Funcionario funcionario) {
+        return true;
+    }
+    public boolean editar(Funcionario funcionario) {
+        return true;
+    }
+    public Funcionario consultar(int matricula) {
+        return this; //retornar informações do funcionario
+    }
+    public static ArrayList<Funcionario> listar() {
+        return new ArrayList<>();
+    }
+    public void metodo(){
+
     }
 }
