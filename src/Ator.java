@@ -1,6 +1,6 @@
 import java.util.ArrayList;
 
-public class Ator extends Pessoa {
+public class Ator implements Pessoa {
     private int registro;
 
     public Ator(String cpf, String nome, String email, int registro) {

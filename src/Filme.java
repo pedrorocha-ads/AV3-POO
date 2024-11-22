@@ -1,4 +1,4 @@
-public class Filme implements Ator{
+public class Filme {
     private int idFilme;
     private String titulo;
     private int classificacao;

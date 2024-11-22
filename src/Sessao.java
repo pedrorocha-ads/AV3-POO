@@ -1,6 +1,6 @@
 import java.util.ArrayList;
 
-public class Sessao extends Funcionario{
+public class Sessao {
     private int idSessao;
     private dataSessaoHora datetime;
     private Filme filme;
@@ -60,10 +60,10 @@ public class Sessao extends Funcionario{
     public boolean editar(Sessao sessao){
         return false;
     }
-    public Object consultar(Sessao sessao){
+    public Sessao consultar(Sessao sessao){
         return null;
     }
-    public Object listar(Sessao sessao){
+    public Sessao listar(Sessao sessao){
         return null;
     }
     public ArrayList<Sessao> listar(){

@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 import java.util.Date;
 
-public class Funcionario extends Pessoa{
+public class Funcionario implements Pessoa{
     private int matricula;
     private Date horarioTrabalho;
 

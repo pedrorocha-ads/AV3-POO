@@ -1,4 +1,4 @@
-public class Genero implements Ator{
+public class Genero {
     private int id;
     private String descricao;
     private String status;

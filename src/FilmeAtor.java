@@ -1,6 +1,6 @@
 import java.util.ArrayList;
 
-public class FilmeAtor implements Ator{
+public class FilmeAtor{
     private int idFilmeAtor;
     private Ator ator;
     private Filme filme;

@@ -1,11 +1,10 @@
 import java.util.ArrayList;
 
-public class Assento extends TipoAssento{
+public class Assento {
     private int idAssento;
     private TipoAssento tipoassento;
 
     public Assento(int idTipoAssento, String descricao, String status, int idAssento, TipoAssento tipoAssento) {
-        super(idTipoAssento, descricao, status);
         this.idAssento = idAssento;
         this.tipoAssento = tipoassento;
     }
