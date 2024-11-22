@@ -42,10 +42,10 @@ public class Sala {
     public boolean editar(Sala sala){
         return false;
     }
-    public boolean consultar(Sala sala){
-        return false;
+    public Sala consultar(Sala sala){
+        return this;
     }
-    public ArrayList<Sala> listar(){
-        return null;
+    public static ArrayList<Sala> listar(){
+        return new ArrayList<>();
     }
 }
