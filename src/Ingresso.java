@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+
 public class Ingresso {
     private int idIngresso;
     private double valorPago;
@@ -40,8 +42,10 @@ public class Ingresso {
     public boolean editar(Ingresso ingresso) {
         return false;
     }
-    public boolean consultar(Ingresso ingresso) {
-        return false;
+    public Ingresso consultar(int idiIngresso) {
+        return this;
     }
-    public 
+    public static ArrayList<Ingresso> listar() {
+        return new ArrayList<>();
+    }
 }
