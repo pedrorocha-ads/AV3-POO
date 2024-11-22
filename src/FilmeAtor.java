@@ -50,14 +50,10 @@ public class FilmeAtor{
     public boolean editar(FilmeAtor filmeAtor){
         return true;
     }
-    public consultar(FilmeAtor filmeAtor){
-        return filmeAtor;
+    public FilmeAtor consultar(int idFilmeAtor){
+        return this;
     }
-    public listar(FilmeAtor filmeAtor){
-        return ;
+    public static ArrayList<FilmeAtor> filmesAtor(){
+        return new ArrayList<>();
     }
-    public ArrayList<FilmeAtor> listar(){
-        return null;
-    }
-
 }
