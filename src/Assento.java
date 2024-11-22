@@ -26,10 +26,10 @@ public class Assento {
     public boolean editar(Assento assento) {
         return false;
     }
-    public Assento consultar(Assento assento){
-        return assento;
+    public Assento consultar(int IdAssento) {
+        return this;
     }
-    public ArrayList listar(Assento assento){
-        return new ArrayList<Assento>();
+    public static ArrayList<Assento> listar() {
+        return new ArrayList<>();
     }
 }
