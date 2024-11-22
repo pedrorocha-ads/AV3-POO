@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+
 public class Filme {
     private int idFilme;
     private String titulo;
@@ -48,8 +50,10 @@ public class Filme {
     public boolean editar(Filme filme){
         return true;
     }
-    public consultar(Filme filme){
-        return filme;
+    public Filme consultar(Filme filme){
+        return this;
     }
-
+    public static ArrayList<Filme> filmes(){
+        return new ArrayList<>();
+    }
 }
