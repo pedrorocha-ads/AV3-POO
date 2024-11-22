@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+
 public class Genero {
     private int id;
     private String descricao;
@@ -32,8 +34,11 @@ public class Genero {
     public boolean editar(Genero genero){
         return false;
     }
-    public consultar(Genero genero){
-        return genero;
+    public Genero consultar(Genero genero){
+        return this;
+    }
+    public static ArrayList<Genero> listar(){
+        return new ArrayList<>();
     }
 
 }
