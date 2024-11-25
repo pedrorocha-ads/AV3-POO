@@ -6,7 +6,7 @@ public class Assento {
 
     public Assento(int idTipoAssento, String descricao, String status, int idAssento, TipoAssento tipoAssento) {
         this.idAssento = idAssento;
-        this.tipoAssento = tipoassento;
+        this.tipoassento = tipoassento;
     }
     public int getIdAssento() {
         return idAssento;
