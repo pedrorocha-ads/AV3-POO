@@ -40,5 +40,8 @@ public class Genero {
     public static ArrayList<Genero> listar(){
         return new ArrayList<>();
     }
+    public String toString(){
+        return "Genero [ID=" + id + ", Descricao=" + descricao + ", Status=" + status + "]";
+    }
 
 }
