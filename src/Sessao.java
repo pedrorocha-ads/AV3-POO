@@ -68,4 +68,7 @@ public class Sessao {
     public ArrayList<Sessao> listar(){
         return new ArrayList<>();
     }
+    public String ToString(){
+        return "Sessao ID: " + idSessao + ", Data/Hora: " + dataHoraSessao + ", Filme: " + filme + ", Sala: " + sala + ", Funcionario: " + funcionario + ", Status: " + status;
+    }
 }
