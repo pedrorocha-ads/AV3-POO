@@ -34,7 +34,7 @@ public class Funcionario extends Pessoa{
     public static ArrayList<Funcionario> listar() {
         return new ArrayList<>();
     }
-    public void metodo(){
-
+    public String toString() {
+        return super.toString() + ", Funcionario [Matricula: " + matricula + ", Horario: " + horarioTrabalho+"]";
     }
 }
