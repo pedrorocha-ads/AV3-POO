@@ -56,4 +56,7 @@ public class Filme {
     public static ArrayList<Filme> filmes(){
         return new ArrayList<>();
     }
+    public String toString(){
+        return "Filme [ID: " + idFilme + ", Titulo: " + titulo + ", Classificacao: " + classificacao + ", Genero: " + genero + ", Status: " + status + "]";
+    }
 }
