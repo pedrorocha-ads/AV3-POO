@@ -25,8 +25,7 @@ public class Ator extends Pessoa {
     public ArrayList<Ator> listar(Ator ator){
         return new ArrayList<Ator>();
     }
-
-    public void metodo(){
-
+    public String toString(){
+        return super.toString() + "\nRegistro: " + registro;
     }
 }
