@@ -26,5 +26,6 @@ public abstract class Pessoa {
     public void setEmail(String email)   {
         this.email = email;
     }
-    public abstract void metodo();
+    public String toString() {
+        return "Pessoa [cpf= " + cpf + ", Nome: "+ nome + ", Email: " + email + "]";}
 }
