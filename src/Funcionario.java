@@ -35,6 +35,6 @@ public class Funcionario extends Pessoa{
         return new ArrayList<>();
     }
     public String toString() {
-        return super.toString() + ", Funcionario [Matricula: " + matricula + ", Horario: " + horarioTrabalho+"]";
+        return super.toString() + ", Funcionario [Matricula: " + matricula + ", Horario: " + horarioTrabalho + "]";
     }
 }
