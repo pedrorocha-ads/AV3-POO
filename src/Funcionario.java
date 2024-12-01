@@ -3,9 +3,9 @@ import java.util.Date;
 
 public class Funcionario extends Pessoa{
     private int matricula;
-    private Date horarioTrabalho;
+    private String horarioTrabalho;
 
-    public Funcionario(String cpf, String nome, String email, int matricula, Date horarioTrabalho) {
+    public Funcionario(String cpf, String nome, String email, int matricula, String horarioTrabalho) {
         super(cpf, nome, email);
         this.matricula = matricula;
         this.horarioTrabalho = horarioTrabalho;
@@ -16,10 +16,10 @@ public class Funcionario extends Pessoa{
     public void setMatricula(int matricula) {
         this.matricula = matricula;
     }
-    public Date getHorarioTrabalho() {
+    public String getHorarioTrabalho() {
         return horarioTrabalho;
     }
-    public void setHorarioTrabalho(Date horarioTrabalho) {
+    public void setHorarioTrabalho(String horarioTrabalho) {
         this.horarioTrabalho = horarioTrabalho;
     }
     public boolean cadastrar(Funcionario funcionario) {
