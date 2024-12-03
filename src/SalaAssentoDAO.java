@@ -32,8 +32,8 @@ public class SalaAssentoDAO {
                 Sala sala = SalaDAO.consultar(Integer.parseInt(split[2]));
                 SalaAssento salaAssento = new SalaAssento(
                         Integer.parseInt(split[0]), // ID do SalaAssento
-                        assento, // Assento
-                        sala // Sala
+                        assento,
+                        sala
                 );
                 lista.add(salaAssento);
             }

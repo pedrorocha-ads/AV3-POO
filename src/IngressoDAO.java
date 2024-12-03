@@ -12,8 +12,8 @@ public class IngressoDAO {
             for (Ingresso ingresso : ingressos) {
                 writer.write(ingresso.getIdIngresso() + ";" +
                         ingresso.getValorPago() + ";" +
-                        ingresso.getSessao().getIdSessao() + ";" +  
-                        ingresso.getSalaAssento().getIdSalaAssento()); 
+                        ingresso.getSessao().getIdSessao() + ";" +
+                        ingresso.getSalaAssento().getIdSalaAssento());
                 writer.newLine();
             }
         } catch (IOException e) {
@@ -34,8 +34,8 @@ public class IngressoDAO {
                 String[] split = linha.split(";");
                 int idIngresso = Integer.parseInt(split[0]);
                 double valorPago = Double.parseDouble(split[1]);
-                int idSessao = Integer.parseInt(split[2]);  
-                int idSalaAssento = Integer.parseInt(split[3]);
+                int idSessao = Integer.parseInt(split[2]);  // ID da Sessão
+                int idSalaAssento = Integer.parseInt(split[3]); // ID do SalaAssento
             }
         } catch (IOException e) {
             System.out.println("Erro ao carregar Ingresso: " + e.getMessage());
