@@ -8,6 +8,11 @@ public class SalaAssento {
         this.assento = assento;
         this.sala = sala;
     }
+
+    public static SalaAssento consultar(int idAssento) {
+        return null;
+    }
+
     public int getIdSalaAssento() {
         return idSalaAssento;
     }
@@ -36,6 +41,10 @@ public class SalaAssento {
         return false;
     }
     public Sala listar(SalaAssento salaAssento){
+        return null;
+    }
+
+    public String getIdAssento() {
         return null;
     }
 }

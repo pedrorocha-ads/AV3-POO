@@ -3,7 +3,7 @@ import java.util.ArrayList;
 public class Ator extends Pessoa {
     private int registro;
 
-    public Ator(String cpf, String nome, String email, int registro) {
+    public Ator(String cpf, String nome, String email) {
         super(cpf, nome, email);
         this.registro = registro;
     }

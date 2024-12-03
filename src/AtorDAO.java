@@ -29,8 +29,8 @@ import java.util.List;
                     Ator ator = new Ator(
                             split[0], // CPF
                             split[1], // Nome
-                            split[2], // Email
-                            Integer.parseInt(split[3]) // Registro
+                            split[2] // Email
+                            // Registro
                     );
                     lista.add(ator);
                 }
