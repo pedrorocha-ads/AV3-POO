@@ -46,7 +46,6 @@ public class Menu {
             }
         } while (opcao != 0);
     }
-
     private static void menuFuncionario() {
         int opcao;
         do {
@@ -81,7 +80,6 @@ public class Menu {
             }
         } while (opcao != 0);
     }
-
     private static void menuFilme() {
         int opcao;
         do {
@@ -116,7 +114,6 @@ public class Menu {
             }
         } while (opcao != 0);
     }
-
     private static void menuAtor() {
         int opcao;
         do {
@@ -151,7 +148,6 @@ public class Menu {
             }
         } while (opcao != 0);
     }
-
     private static void menuSessao() {
         int opcao;
         do {
@@ -186,7 +182,6 @@ public class Menu {
             }
         } while (opcao != 0);
     }
-
     private static void menuIngresso() {
         int opcao;
         do {
@@ -237,7 +232,6 @@ public class Menu {
         FuncionarioDAO.cadastrar(funcionario);
         System.out.println("Funcionário cadastrado com sucesso!");
     }
-
     private static void editarFuncionario() {
         System.out.print("Digite a matrícula do funcionário: ");
         int matricula = scanner.nextInt();
@@ -266,7 +260,6 @@ public class Menu {
             System.out.println("Funcionário não encontrado.");
         }
     }
-
     private static void consultarFuncionario() {
         System.out.print("Digite a matrícula do funcionário: ");
         int matricula = scanner.nextInt();
@@ -277,7 +270,6 @@ public class Menu {
             System.out.println("Funcionário não encontrado.");
         }
     }
-
     private static void listarFuncionarios() {
         List<Funcionario> funcionarios = FuncionarioDAO.listar();
         for (Funcionario funcionario : funcionarios) {
@@ -298,7 +290,6 @@ public class Menu {
         FilmeDAO.cadastrar(filme);
         System.out.println("Filme cadastrado com sucesso!");
     }
-
     private static void editarFilme() {
         System.out.print("Digite o ID do filme: ");
         int idFilme = scanner.nextInt();
@@ -330,7 +321,6 @@ public class Menu {
             System.out.println("Filme não encontrado.");
         }
     }
-
     private static void consultarFilme() {
         System.out.print("Digite o ID do filme: ");
         int idFilme = scanner.nextInt();
@@ -342,7 +332,6 @@ public class Menu {
             System.out.println("Filme não encontrado.");
         }
     }
-
     private static void listarFilmes() {
         List<Filme> filmes = FilmeDAO.listar();
         for (Filme filme : filmes) {
@@ -360,7 +349,6 @@ public class Menu {
         AtorDAO.cadastrar(ator);
         System.out.println("Ator cadastrado com sucesso!");
     }
-
     private static void editarAtor() {
         System.out.print("Digite o nome do ator: ");
         String nome = scanner.nextLine();
@@ -386,7 +374,6 @@ public class Menu {
             System.out.println("Ator não encontrado.");
         }
     }
-
     private static void consultarAtor() {
         System.out.print("Digite o nome do ator: ");
         String nome = scanner.nextLine();
@@ -397,7 +384,6 @@ public class Menu {
             System.out.println("Ator não encontrado.");
         }
     }
-
     private static void listarAtores() {
         List<Ator> atores = AtorDAO.listar();
         for (Ator ator : atores) {
@@ -437,7 +423,6 @@ public class Menu {
         SessaoDAO.cadastrar(sessao);
         System.out.println("Sessão cadastrada com sucesso!");
     }
-
     private static void editarSessao() {
         System.out.print("Digite o ID da sessão: ");
         int idSessao = scanner.nextInt();
@@ -468,7 +453,6 @@ public class Menu {
                 System.err.println("Erro ao converter data e hora: " + e.getMessage());
                 return;
             }
-
             Sessao sessaoAtualizada = new Sessao(
                     sessao.getIdSessao(),
                     dataHora.isEmpty() ? sessao.getDataHoraSessao() : dataHoraSessao,
@@ -486,7 +470,6 @@ public class Menu {
             System.out.println("Sessão não encontrada.");
         }
     }
-
     private static void consultarSessao() {
         System.out.print("Digite o ID da sessão: ");
         int idSessao = scanner.nextInt();
@@ -497,14 +480,12 @@ public class Menu {
             System.out.println("Sessão não encontrada.");
         }
     }
-
     private static void listarSessoes() {
         List<Sessao> sessoes = SessaoDAO.listar();
         for (Sessao sessao : sessoes) {
             System.out.println(sessao);
         }
     }
-
 private static void cadastrarIngresso() {
     System.out.print("ID do Ingresso: ");
     int idIngresso = scanner.nextInt();
@@ -526,7 +507,6 @@ private static void cadastrarIngresso() {
     IngressoDAO.cadastrar(ingresso);
     System.out.println("Ingresso cadastrado com sucesso!");
 }
-
 private static void editarIngresso() {
     System.out.print("Digite o ID do ingresso: ");
     int idIngresso = scanner.nextInt();
@@ -561,7 +541,6 @@ private static void editarIngresso() {
         System.out.println("Ingresso não encontrado.");
     }
 }
-
 private static void consultarIngresso() {
     System.out.print("Digite o ID do ingresso: ");
     int idIngresso = scanner.nextInt();
@@ -572,7 +551,6 @@ private static void consultarIngresso() {
         System.out.println("Ingresso não encontrado.");
     }
 }
-
 private static void listarIngressos() {
     List<Ingresso> ingressos = IngressoDAO.listar();
     for (Ingresso ingresso : ingressos) {
