@@ -30,7 +30,6 @@ import java.util.List;
                             split[0], // CPF
                             split[1], // Nome
                             split[2] // Email
-                            // Registro
                     );
                     lista.add(ator);
                 }
