@@ -16,6 +16,7 @@ public class FilmeDAO {
             System.err.println("Erro ao gravar filmes: " + e.getMessage());
         }
     }
+
     public static List<Filme> carregar() {
         List<Filme> lista = new ArrayList<>();
         File file = new File(FILE_NAME);

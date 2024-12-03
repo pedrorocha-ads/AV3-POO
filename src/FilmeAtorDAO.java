@@ -27,7 +27,6 @@ public class FilmeAtorDAO {
             System.out.println("Aviso: O arquivo '" + FILE_NAME + "' não existe. Criando um novo.");
             return lista;
         }
-
         try (BufferedReader reader = new BufferedReader(new FileReader(FILE_NAME))) {
             String linha;
             while ((linha = reader.readLine()) != null) {

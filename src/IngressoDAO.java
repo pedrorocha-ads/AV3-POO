@@ -19,6 +19,7 @@ public class IngressoDAO {
             System.out.println("Erro ao salvar Ingresso: " + e.getMessage());
         }
     }
+
     public static List<Ingresso> carregar() {
         List<Ingresso> lista = new ArrayList<>();
         File file = new File(FILE_NAME);

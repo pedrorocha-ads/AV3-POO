@@ -67,7 +67,6 @@ public class SessaoDAO {
                 break;
             }
         }
-
         if (atualizado) {
             salvar(sessoes);
         }

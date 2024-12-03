@@ -16,6 +16,7 @@ public class SalaAssentoDAO {
             System.err.println("Erro ao gravar salaAssentos: " + e.getMessage());
         }
     }
+
     public static List<SalaAssento> carregar() {
         List<SalaAssento> lista = new ArrayList<>();
         File file = new File(FILE_NAME);

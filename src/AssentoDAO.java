@@ -6,6 +6,7 @@ public class AssentoDAO {
     private static final String DIRECTORY = "database";
     private static final String FILE_NAME = DIRECTORY + "/Assento.txt";
 
+
     public static void salvar(List<Assento> assentos) {
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(FILE_NAME))) {
             for (Assento assento : assentos) {
