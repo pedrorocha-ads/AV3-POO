@@ -3,7 +3,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class FuncionarioDAO {
-    private static final String FILE_NAME = "funcionarios.txt";
+    private static final String DIRECTORY = "database";
+    private static final String FILE_NAME = DIRECTORY + "/funcionarios.txt";
 
     public static void salvar(List<Funcionario> funcionarios) {
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(FILE_NAME))) {

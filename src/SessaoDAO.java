@@ -6,7 +6,8 @@ import java.util.Date;
 import java.util.List;
 
 public class SessaoDAO {
-    private static final String FILE_NAME = "Sessao.txt";
+    private static final String DIRECTORY = "database";
+    private static final String FILE_NAME = DIRECTORY + "/sessoes.txt";
     private static final SimpleDateFormat DATE_FORMAT = new SimpleDateFormat("dd/MM/yyyy HH:mm");
 
     public static void salvar(List<Sessao> sessoes) {

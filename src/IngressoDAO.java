@@ -3,7 +3,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class IngressoDAO {
-    private static final String FILE_NAME = "Ingresso.txt";
+    private static final String DIRECTORY = "database";
+    private static final String FILE_NAME = DIRECTORY + "/ingressos.txt";
 
 
     public static void salvar(List<Ingresso> ingressos) {
