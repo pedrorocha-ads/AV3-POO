@@ -28,7 +28,7 @@ public class AssentoDAO {
             while ((linha = reader.readLine()) != null) {
                 String[] split = linha.split(";");
                 int idAssento = Integer.parseInt(split[0]);
-                TipoAssento tipoAssento = TipoAssento.valueOf(split[1]);
+                TipoAssento tipoAssento = TipoAssento.listar().get( Integer.parseInt(split[1]) );
                 Assento assento = new Assento(idAssento, tipoAssento);
                 lista.add(assento);
             }

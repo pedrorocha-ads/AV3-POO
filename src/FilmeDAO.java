@@ -34,7 +34,7 @@ public class FilmeDAO {
                 int idFilme = Integer.parseInt(split[0]);
                 String titulo = split[1];
                 int classificacao = Integer.parseInt(split[2]);
-                Genero genero = Genero.valueOf(split[3]);
+                Genero genero = Genero.listar().get(Integer.parseInt(split[3]));
                 String status = split[4];
 
                 Filme filme = new Filme(idFilme, titulo, classificacao, genero, status);

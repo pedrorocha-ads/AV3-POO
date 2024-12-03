@@ -35,13 +35,6 @@ public class IngressoDAO {
                 double valorPago = Double.parseDouble(split[1]);
                 int idSessao = Integer.parseInt(split[2]);  // ID da Sessão
                 int idSalaAssento = Integer.parseInt(split[3]); // ID do SalaAssento
-
-                // Reconstituir objetos relacionados (Sessao e SalaAssento)
-                Sessao sessao = SessaoDAO.consultar(idSessao); // Supondo SessaoDAO implementado
-                SalaAssento salaAssento = SalaAssentoDAO.consultar(idSalaAssento); // Supondo SalaAssentoDAO implementado
-
-                Ingresso ingresso = new Ingresso(idIngresso, valorPago, sessao, salaAssento);
-                lista.add(ingresso);
             }
         } catch (IOException e) {
             System.out.println("Erro ao carregar Ingresso: " + e.getMessage());
