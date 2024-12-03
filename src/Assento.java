@@ -2,11 +2,11 @@ import java.util.ArrayList;
 
 public class Assento {
     private int idAssento;
-    private TipoAssento tipoassento;
+    private TipoAssento tipoAssento;
 
     public Assento(int idTipoAssento, String descricao, String status, int idAssento, TipoAssento tipoAssento) {
         this.idAssento = idAssento;
-        this.tipoassento = tipoassento;
+        this.tipoAssento = tipoAssento;
     }
     public int getIdAssento() {
         return idAssento;
@@ -15,10 +15,10 @@ public class Assento {
         this.idAssento = idAssento;
     }
     public TipoAssento getTipoAssento() {
-        return tipoassento;
+        return tipoAssento;
     }
     public void setTipoAssento(TipoAssento tipoAssento) {
-        this.tipoassento = tipoAssento;
+        this.tipoAssento = tipoAssento;
     }
     public boolean cadastrar(Assento assento) {
         return false;
@@ -32,4 +32,8 @@ public class Assento {
     public static ArrayList<Assento> listar() {
         return new ArrayList<>();
     }
+    public String toString() {
+        return "Assento [ID: " + idAssento + ", Tipo: " + tipoAssento + "]";
+    }
+
 }
