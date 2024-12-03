@@ -43,5 +43,8 @@ public class Genero {
     public String toString(){
         return "Genero [ID=" + id + ", Descricao=" + descricao + ", Status=" + status + "]";
     }
+    public static TipoAssento valueOf(String s) {
+        return null;
+    }
 
 }

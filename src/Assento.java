@@ -8,6 +8,11 @@ public class Assento {
         this.idAssento = idAssento;
         this.tipoAssento = tipoAssento;
     }
+
+    public Assento(int idAssento, TipoAssento tipoAssento) {
+        this.idAssento = idAssento;
+    }
+
     public int getIdAssento() {
         return idAssento;
     }
