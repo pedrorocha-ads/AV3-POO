@@ -48,4 +48,12 @@ public class Sala {
     public static ArrayList<Sala> listar(){
         return new ArrayList<>();
     }
+    public String toString() {
+        return "Sala {" +
+                "ID: " + idSala +
+                ", Capacidade: " + capacidadeSala +
+                ", Status: " + status +
+                ", Descrição: '" + descricao + '\'' +
+                '}';
+    }
 }

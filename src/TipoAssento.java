@@ -5,11 +5,16 @@ public class TipoAssento {
     private String descricao;
     private String status;
 
-    public TipoAssento(int idTipoAssento, String descricao, String status) {
+    public TipoAssento(int idTipoAssento, String descricao) {
         this.idTipoAssento = idTipoAssento;
         this.descricao = descricao;
         this.status = status;
     }
+
+    public static TipoAssento fromString(String tipoAssentoStr) {
+        return null;
+    }
+
     public String getDescricao() {
         return descricao;
     }
@@ -39,5 +44,12 @@ public class TipoAssento {
     }
     public static ArrayList<TipoAssento> listar(){
         return new ArrayList<>();
+    }
+    public String toString() {
+        return "TipoAssento {" +
+                "ID: " + idTipoAssento +
+                ", Descrição: '" + descricao + '\'' +
+                ", Status: '" + status + '\'' +
+                '}';
     }
 }

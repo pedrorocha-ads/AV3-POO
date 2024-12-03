@@ -6,6 +6,13 @@ public class IngressoDAO {
     private static final String DIRECTORY = "database";
     private static final String FILE_NAME = DIRECTORY + "/ingressos.txt";
 
+    static {
+        File dir = new File(DIRECTORY);
+        if (!dir.exists()) {
+            dir.mkdirs();
+        }
+    }
+
     public static void salvar(List<Ingresso> ingressos) {
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(FILE_NAME))) {
             for (Ingresso ingresso : ingressos) {
@@ -32,21 +39,34 @@ public class IngressoDAO {
             String linha;
             while ((linha = reader.readLine()) != null) {
                 String[] split = linha.split(";");
-                int idIngresso = Integer.parseInt(split[0]);
-                double valorPago = Double.parseDouble(split[1]);
-                int idSessao = Integer.parseInt(split[2]);  // ID da Sessão
-                int idSalaAssento = Integer.parseInt(split[3]); // ID do SalaAssento
+                if (split.length == 4) {
+                    int idIngresso = Integer.parseInt(split[0]);
+                    double valorPago = Double.parseDouble(split[1]);
+                    Sessao sessao = SessaoDAO.consultar(Integer.parseInt(split[2]));  // ID da Sessão
+                    SalaAssento salaAssento = SalaAssentoDAO.consultar(Integer.parseInt(split[3])); // ID do SalaAssento
+
+                    if (sessao != null && salaAssento != null) {
+                        Ingresso ingresso = new Ingresso(idIngresso, valorPago, sessao, salaAssento);
+                        lista.add(ingresso);
+                    } else {
+                        System.out.println("Sessão ou SalaAssento inválido no arquivo: " + linha);
+                    }
+                } else {
+                    System.out.println("Linha inválida no arquivo: " + linha);
+                }
             }
         } catch (IOException e) {
             System.out.println("Erro ao carregar Ingresso: " + e.getMessage());
         }
         return lista;
     }
+
     public static void cadastrar(Ingresso ingresso) {
         List<Ingresso> ingressos = carregar();
         ingressos.add(ingresso);
         salvar(ingressos);
     }
+
     public static boolean editar(int idIngresso, Ingresso ingressoAtualizado) {
         List<Ingresso> ingressos = carregar();
         boolean atualizado = false;
@@ -64,6 +84,7 @@ public class IngressoDAO {
         }
         return atualizado;
     }
+
     public static Ingresso consultar(int idIngresso) {
         List<Ingresso> ingressos = carregar();
         for (Ingresso ingresso : ingressos) {
@@ -73,6 +94,7 @@ public class IngressoDAO {
         }
         return null;
     }
+
     public static List<Ingresso> listar() {
         return carregar();
     }

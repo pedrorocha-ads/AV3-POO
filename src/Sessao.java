@@ -60,10 +60,10 @@ public class Sessao {
         return false;
     }
     public Sessao consultar(Sessao sessao){
-        return null;
+        return sessao;
     }
     public Sessao listar(Sessao sessao){
-        return null;
+        return sessao;
     }
     public ArrayList<Sessao> listar(){
         return new ArrayList<>();

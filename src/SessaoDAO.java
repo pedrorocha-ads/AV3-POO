@@ -8,7 +8,14 @@ import java.util.List;
 public class SessaoDAO {
     private static final String DIRECTORY = "database";
     private static final String FILE_NAME = DIRECTORY + "/sessoes.txt";
-    private static final SimpleDateFormat DATE_FORMAT = new SimpleDateFormat("dd/MM/yyyy HH:mm");
+    private static final SimpleDateFormat DATE_FORMAT = new SimpleDateFormat("yyyy-MM-dd HH:mm");
+
+    static {
+        File dir = new File(DIRECTORY);
+        if (!dir.exists()) {
+            dir.mkdirs();
+        }
+    }
 
     public static void salvar(List<Sessao> sessoes) {
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(FILE_NAME))) {
@@ -25,6 +32,7 @@ public class SessaoDAO {
             System.out.println("Erro ao salvar Sessão: " + e.getMessage());
         }
     }
+
     public static List<Sessao> carregar() {
         List<Sessao> lista = new ArrayList<>();
         File file = new File(FILE_NAME);
@@ -51,11 +59,13 @@ public class SessaoDAO {
         }
         return lista;
     }
+
     public static void cadastrar(Sessao sessao) {
         List<Sessao> sessoes = carregar();
         sessoes.add(sessao);
         salvar(sessoes);
     }
+
     public static boolean editar(int idSessao, Sessao sessaoAtualizada) {
         List<Sessao> sessoes = carregar();
         boolean atualizado = false;
@@ -72,6 +82,7 @@ public class SessaoDAO {
         }
         return atualizado;
     }
+
     public static Sessao consultar(int idSessao) {
         List<Sessao> sessoes = carregar();
         for (Sessao sessao : sessoes) {
@@ -81,6 +92,7 @@ public class SessaoDAO {
         }
         return null;
     }
+
     public static List<Sessao> listar() {
         return carregar();
     }

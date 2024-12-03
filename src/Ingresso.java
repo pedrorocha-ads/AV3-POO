@@ -48,4 +48,12 @@ public class Ingresso {
     public static ArrayList<Ingresso> listar() {
         return new ArrayList<>();
     }
+    public String toString() {
+        return "Ingresso {" +
+                "ID: " + idIngresso +
+                ", Valor Pago: R$ " + String.format("%.2f", valorPago) +
+                ", Sala/Assento: " + (salaAssento != null ? salaAssento : "N/A") +
+                ", Sessão: " + (sessao != null ? sessao : "N/A") +
+                '}';
+    }
 }

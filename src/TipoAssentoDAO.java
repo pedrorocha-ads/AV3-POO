@@ -2,7 +2,7 @@ import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class AssentoDAO {
+public class TipoAssentoDAO {
     private static final String DIRECTORY = "database";
     private static final String FILE_NAME = DIRECTORY + "/assentos.txt";
 
@@ -35,18 +35,10 @@ public class AssentoDAO {
             String linha;
             while ((linha = reader.readLine()) != null) {
                 String[] split = linha.split(";");
-                if (split.length == 2) {
-                    int idAssento = Integer.parseInt(split[0]);
-                    TipoAssento tipoAssento = TipoAssento.fromString(split[1]);
-                    if (tipoAssento != null) {
-                        Assento assento = new Assento(idAssento, tipoAssento);
-                        lista.add(assento);
-                    } else {
-                        System.out.println("Tipo de assento inválido no arquivo: " + split[1]);
-                    }
-                } else {
-                    System.out.println("Linha inválida no arquivo: " + linha);
-                }
+                int idAssento = Integer.parseInt(split[0]);
+                TipoAssento tipoAssento = TipoAssento.fromString(split[1]);
+                Assento assento = new Assento(idAssento, tipoAssento);
+                lista.add(assento);
             }
         } catch (IOException e) {
             System.out.println("Erro ao carregar assento: " + e.getMessage());

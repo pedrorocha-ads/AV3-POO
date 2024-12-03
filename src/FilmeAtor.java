@@ -56,4 +56,13 @@ public class FilmeAtor{
     public static ArrayList<FilmeAtor> filmesAtor(){
         return new ArrayList<>();
     }
+    public String toString() {
+        return "FilmeAtor {" +
+                "ID: " + idFilmeAtor +
+                ", Ator: " + (ator != null ? ator.getNome() : "N/A") +
+                ", Filme: " + (filme != null ? filme.getTitulo() : "N/A") +
+                ", Personagem: '" + personagem + '\'' +
+                ", Principal: " + (principal ? "Sim" : "Não") +
+                '}';
+    }
 }

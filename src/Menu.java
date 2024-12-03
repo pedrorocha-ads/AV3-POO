@@ -17,6 +17,7 @@ public class Menu {
             System.out.println("3. Ator");
             System.out.println("4. Sessão");
             System.out.println("5. Ingresso");
+            System.out.println("6. Assento");
             System.out.println("0. Sair");
             System.out.print("Escolha uma opção: ");
             opcao = scanner.nextInt();
@@ -38,6 +39,9 @@ public class Menu {
                 case 5:
                     menuIngresso();
                     break;
+                case 6:
+                    menuAssento();
+                    break;
                 case 0:
                     System.out.println("Saindo...");
                     break;
@@ -46,6 +50,42 @@ public class Menu {
             }
         } while (opcao != 0);
     }
+
+    private static void menuAssento() {
+        int opcao;
+        do {
+            System.out.println("===== Menu Assento =====");
+            System.out.println("1. Cadastrar Assento");
+            System.out.println("2. Editar Assento");
+            System.out.println("3. Consultar Assento");
+            System.out.println("4. Listar Assentos");
+            System.out.println("0. Voltar");
+            System.out.print("Escolha uma opção: ");
+            opcao = scanner.nextInt();
+            scanner.nextLine();
+
+            switch (opcao) {
+                case 1:
+                    cadastrarAssento();
+                    break;
+                case 2:
+                    editarAssento();
+                    break;
+                case 3:
+                    consultarAssento();
+                    break;
+                case 4:
+                    listarAssentos();
+                    break;
+                case 0:
+                    System.out.println("Voltando...");
+                    break;
+                default:
+                    System.out.println("Opção inválida!");
+            }
+        } while (opcao != 0);
+    }
+
     private static void menuFuncionario() {
         int opcao;
         do {
@@ -390,7 +430,7 @@ public class Menu {
             System.out.println(ator);
         }
     }
-        private static void cadastrarSessao() {
+    private static void cadastrarSessao() {
         System.out.print("ID da Sessão: ");
         int idSessao = scanner.nextInt();
         scanner.nextLine();
@@ -409,8 +449,23 @@ public class Menu {
         String status = scanner.nextLine();
 
         Filme filme = FilmeDAO.consultar(idFilme);
+        if (filme == null) {
+            System.out.println("Filme não encontrado.");
+            return;
+        }
+
         Sala sala = SalaDAO.consultar(idSala);
+        if (sala == null) {
+            System.out.println("Sala não encontrada.");
+            return;
+        }
+
         Funcionario funcionario = FuncionarioDAO.consultar(idFuncionario);
+        if (funcionario == null) {
+            System.out.println("Funcionário não encontrado.");
+            return;
+        }
+
         Date dataHoraSessao = null;
         try {
             dataHoraSessao = new SimpleDateFormat("yyyy-MM-dd HH:mm").parse(dataHora);
@@ -486,75 +541,147 @@ public class Menu {
             System.out.println(sessao);
         }
     }
-private static void cadastrarIngresso() {
-    System.out.print("ID do Ingresso: ");
-    int idIngresso = scanner.nextInt();
-    scanner.nextLine();
-    System.out.print("Valor Pago: ");
-    double valorPago = scanner.nextDouble();
-    scanner.nextLine();
-    System.out.print("ID da Sessão: ");
-    int idSessao = scanner.nextInt();
-    scanner.nextLine();
-    System.out.print("ID do Assento: ");
-    int idAssento = scanner.nextInt();
-    scanner.nextLine();
-
-    Sessao sessao = SessaoDAO.consultar(idSessao);
-    SalaAssento salaAssento = SalaAssentoDAO.consultar(idAssento);
-
-    Ingresso ingresso = new Ingresso(idIngresso, valorPago, sessao, salaAssento);
-    IngressoDAO.cadastrar(ingresso);
-    System.out.println("Ingresso cadastrado com sucesso!");
-}
-private static void editarIngresso() {
-    System.out.print("Digite o ID do ingresso: ");
-    int idIngresso = scanner.nextInt();
-    scanner.nextLine();
-    Ingresso ingresso = IngressoDAO.consultar(idIngresso);
-    if (ingresso != null) {
-        System.out.print("Novo Valor Pago (atual: " + ingresso.getValorPago() + "): ");
+    private static void cadastrarIngresso() {
+        System.out.print("ID do Ingresso: ");
+        int idIngresso = scanner.nextInt();
+        scanner.nextLine();
+        System.out.print("Valor Pago: ");
         double valorPago = scanner.nextDouble();
         scanner.nextLine();
-        System.out.print("Novo ID da Sessão (atual: " + ingresso.getSessao().getIdSessao() + "): ");
+        System.out.print("ID da Sessão: ");
         int idSessao = scanner.nextInt();
         scanner.nextLine();
-        System.out.print("Novo ID do Assento (atual: " + ingresso.getSalaAssento().getIdAssento() + "): ");
+        System.out.print("ID do Assento: ");
         int idAssento = scanner.nextInt();
         scanner.nextLine();
 
         Sessao sessao = SessaoDAO.consultar(idSessao);
-        SalaAssento salaAssento = SalaAssentoDAO.consultar(idAssento);
-
-        Ingresso ingressoAtualizado = new Ingresso(
-                ingresso.getIdIngresso(),
-                valorPago == 0 ? ingresso.getValorPago() : valorPago,
-                sessao == null ? ingresso.getSessao() : sessao,
-                salaAssento == null ? ingresso.getSalaAssento() : salaAssento
-        );
-        if (IngressoDAO.editar(idIngresso, ingressoAtualizado)) {
-            System.out.println("Ingresso atualizado com sucesso!");
-        } else {
-            System.out.println("Erro ao atualizar ingresso.");
+        if (sessao == null) {
+            System.out.println("Sessão não encontrada.");
+            return;
         }
-    } else {
-        System.out.println("Ingresso não encontrado.");
+
+        SalaAssento salaAssento = SalaAssentoDAO.consultar(idAssento);
+        if (salaAssento == null) {
+            System.out.println("Assento não encontrado.");
+            return;
+        }
+
+        Ingresso ingresso = new Ingresso(idIngresso, valorPago, sessao, salaAssento);
+        IngressoDAO.cadastrar(ingresso);
+        System.out.println("Ingresso cadastrado com sucesso!");
+    }    private static void editarIngresso() {
+        System.out.print("Digite o ID do ingresso: ");
+        int idIngresso = scanner.nextInt();
+        scanner.nextLine();
+        Ingresso ingresso = IngressoDAO.consultar(idIngresso);
+        if (ingresso != null) {
+            System.out.print("Novo Valor Pago (atual: " + ingresso.getValorPago() + "): ");
+            double valorPago = scanner.nextDouble();
+            scanner.nextLine();
+            System.out.print("Novo ID da Sessão (atual: " + ingresso.getSessao().getIdSessao() + "): ");
+            int idSessao = scanner.nextInt();
+            scanner.nextLine();
+            System.out.print("Novo ID do Assento (atual: " + ingresso.getSalaAssento().getIdAssento() + "): ");
+            int idAssento = scanner.nextInt();
+            scanner.nextLine();
+
+            Sessao sessao = SessaoDAO.consultar(idSessao);
+            SalaAssento salaAssento = SalaAssentoDAO.consultar(idAssento);
+
+            Ingresso ingressoAtualizado = new Ingresso(
+                    ingresso.getIdIngresso(),
+                    valorPago == 0 ? ingresso.getValorPago() : valorPago,
+                    sessao == null ? ingresso.getSessao() : sessao,
+                    salaAssento == null ? ingresso.getSalaAssento() : salaAssento
+            );
+            if (IngressoDAO.editar(idIngresso, ingressoAtualizado)) {
+                System.out.println("Ingresso atualizado com sucesso!");
+            } else {
+                System.out.println("Erro ao atualizar ingresso.");
+            }
+        } else {
+            System.out.println("Ingresso não encontrado.");
+        }
     }
-}
-private static void consultarIngresso() {
-    System.out.print("Digite o ID do ingresso: ");
-    int idIngresso = scanner.nextInt();
-    Ingresso ingresso = IngressoDAO.consultar(idIngresso);
-    if (ingresso != null) {
-        System.out.println(ingresso);
-    } else {
-        System.out.println("Ingresso não encontrado.");
+    private static void consultarIngresso() {
+        System.out.print("Digite o ID do ingresso: ");
+        int idIngresso = scanner.nextInt();
+        Ingresso ingresso = IngressoDAO.consultar(idIngresso);
+        if (ingresso != null) {
+            System.out.println(ingresso);
+        } else {
+            System.out.println("Ingresso não encontrado.");
+        }
     }
-}
-private static void listarIngressos() {
-    List<Ingresso> ingressos = IngressoDAO.listar();
-    for (Ingresso ingresso : ingressos) {
-        System.out.println(ingresso);
+    private static void listarIngressos() {
+        List<Ingresso> ingressos = IngressoDAO.listar();
+        for (Ingresso ingresso : ingressos) {
+            System.out.println(ingresso);
+        }
+
     }
-}
+
+    private static void cadastrarAssento() {
+        System.out.print("ID do Assento: ");
+        int idAssento = scanner.nextInt();
+        scanner.nextLine();
+        System.out.print("Tipo de Assento : ");
+        String tipoAssentoStr = scanner.nextLine();
+        TipoAssento tipoAssento = TipoAssento.fromString(tipoAssentoStr);
+
+        if(tipoAssento == null) {
+                Assento assento = new Assento(idAssento, tipoAssento);
+                AssentoDAO.cadastrar(assento);
+                System.out.println("Assento cadastrado com sucesso!");
+        } else{
+            System.out.println("Tipo de assento inválido.");
+            return;
+        }
+    }
+
+    private static void editarAssento() {
+        System.out.print("Digite o ID do assento: ");
+        int idAssento = scanner.nextInt();
+        scanner.nextLine();
+        Assento assento = AssentoDAO.consultar(idAssento);
+        if (assento != null) {
+            System.out.print("Novo Tipo de Assento (atual: " + assento.getTipoAssento() + "): ");
+            String tipoAssentoStr = scanner.nextLine();
+            TipoAssento tipoAssento = tipoAssentoStr.isEmpty() ? assento.getTipoAssento() : TipoAssento.fromString(tipoAssentoStr);
+
+            if (tipoAssento == null) {
+                System.out.println("Tipo de assento inválido.");
+                return;
+            }
+
+            Assento assentoAtualizado = new Assento(idAssento, tipoAssento);
+            if (AssentoDAO.editar(idAssento, assentoAtualizado)) {
+                System.out.println("Assento atualizado com sucesso!");
+            } else {
+                System.out.println("Erro ao atualizar assento.");
+            }
+        } else {
+            System.out.println("Assento não encontrado.");
+        }
+    }
+
+    private static void consultarAssento() {
+        System.out.print("Digite o ID do assento: ");
+        int idAssento = scanner.nextInt();
+        scanner.nextLine();
+        Assento assento = AssentoDAO.consultar(idAssento);
+        if (assento != null) {
+            System.out.println(assento);
+        } else {
+            System.out.println("Assento não encontrado.");
+        }
+    }
+
+    private static void listarAssentos() {
+        List<Assento> assentos = AssentoDAO.listar();
+        for (Assento assento : assentos) {
+            System.out.println(assento);
+        }
+    }
 }
