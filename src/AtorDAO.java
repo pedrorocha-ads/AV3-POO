@@ -3,7 +3,9 @@ import java.util.ArrayList;
 import java.util.List;
 
     public class AtorDAO {
-        private static final String FILE_NAME = "atores.txt";
+        private static final String DIRECTORY = "database";
+        private static final String FILE_NAME = DIRECTORY + "/atores.txt";
+
 
         public static void salvar(List<Ator> atores) {
             try (BufferedWriter writer = new BufferedWriter(new FileWriter(FILE_NAME))) {

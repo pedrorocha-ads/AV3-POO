@@ -70,8 +70,7 @@ public class FuncionarioDAO {
             if (f.getMatricula() == matricula) {
                 return f;
             }
-        }
-        return null;
+        }return null;
     }
     public static List<Funcionario> listar() {
         return carregar();

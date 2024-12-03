@@ -6,7 +6,6 @@ public class IngressoDAO {
     private static final String DIRECTORY = "database";
     private static final String FILE_NAME = DIRECTORY + "/ingressos.txt";
 
-
     public static void salvar(List<Ingresso> ingressos) {
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(FILE_NAME))) {
             for (Ingresso ingresso : ingressos) {

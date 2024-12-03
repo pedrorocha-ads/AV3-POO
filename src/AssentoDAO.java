@@ -3,7 +3,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class AssentoDAO {
-    private static final String FILE_NAME = "Assento.txt";
+    private static final String DIRECTORY = "database";
+    private static final String FILE_NAME = DIRECTORY + "/Assento.txt";
 
     public static void salvar(List<Assento> assentos) {
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(FILE_NAME))) {
@@ -15,7 +16,6 @@ public class AssentoDAO {
             System.out.println("Erro ao gravar assento: " + e.getMessage());
         }
     }
-
     public static List<Assento> carregar() {
         List<Assento> lista = new ArrayList<>();
         File file = new File(FILE_NAME);

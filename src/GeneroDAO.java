@@ -3,7 +3,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class GeneroDAO {
-    private static final String FILE_NAME = "Genero.txt";
+
+    private static final String DIRECTORY = "database";
+    private static final String FILE_NAME = DIRECTORY + "/Genero.txt";
 
     public static void salvar(List<Genero> generos) {
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(FILE_NAME))) {
